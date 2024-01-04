@@ -14,6 +14,10 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/dashboard');
     }
+    public function user_list(){
+        
+        $this->load->view('admin/user-list');
+    }
     public function logout()
     {
         echo "Logout";
