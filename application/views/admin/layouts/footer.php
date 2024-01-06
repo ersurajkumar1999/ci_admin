@@ -23,6 +23,17 @@
  <!-- Template Main JS File -->
  <script src="<?php echo base_url('assets/js/main.js')?>"></script>
 
+
  </body>
 
  </html>
+ <script>
+    function confirmdelete() {
+        var x = confirm("Are you sure you want to delete?");
+        if (x) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
