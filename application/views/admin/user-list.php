@@ -30,7 +30,6 @@
                                     <th>Email</th>
                                     <th>Number</th>
                                     <th>Password</th>
-                                    <th>CunfurmPas..</th>
                                     <th data-type="date" data-format="YYYY/DD/MM">Created_at</th>
                                     <th data-type="date" data-format="YYYY/DD/MM">Updated_at</th>
                                     <th>Action</th>
@@ -46,7 +45,6 @@
                                     <td><?php echo $alldataadmin['admin_email'] ?></td>
                                     <td><?php echo $alldataadmin['phone_number'] ?></td>
                                     <td><?php echo $alldataadmin['admin_password'] ?></td>
-                                    <td><?php echo $alldataadmin['confrum_password'] ?></td>
                                     <td><?php echo $alldataadmin['created_at'] ?></td>
                                     <td><?php echo $alldataadmin['updated_at'] ?></td>
 

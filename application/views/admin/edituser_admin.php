@@ -39,11 +39,6 @@
                         <label for="password"></label>
                         <input type="text" class="form-control" name="password" value="<?php echo set_value('email', $alldataadmin['admin_password']); ?>">
                     </div>
-
-                    <div class="form-group pt-3">
-                        <label for="confirmPassword"></label>
-                        <input type="text" class="form-control" name="confirmpassword" value="<?php echo set_value('email', $alldataadmin['confrum_password']); ?>">
-                    </div>
                     <button class="btn btn-primary mt-4">Update</button>
                 </form>
             </div>

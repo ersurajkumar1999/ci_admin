@@ -29,8 +29,16 @@ class User_model extends CI_Model
     }
 
     public function deletedata($admin_id)
-    {
+    { 
         $this->db->where('id', $admin_id);
         $this->db->delete('new_admin_data');
+    }
+    public function findUserByEmail($email)
+    {
+        $this->db->select('*');
+        $this->db->from('new_admin_data');
+        $this->db->where('admin_email', $email);
+        $query = $this->db->get();
+        return $query->row_array();
     }
 }
