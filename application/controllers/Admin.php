@@ -22,8 +22,16 @@ class Admin extends CI_Controller
     {
         $userType = 'Manager';
         $managers = $this->User_Model->allUserData($userType);
-
         $data['managers'] = $managers;
-        $this->load->view('admin/manager-list', $data);
+        
+        $this->load->view('admin/manager/index', $data);
+    }
+    public function user_list()
+    {
+        $userType = 'User';
+        $users = $this->User_Model->allUserData($userType);
+        $data['users'] = $users;
+
+        $this->load->view('admin/user/index', $data);
     }
 }
