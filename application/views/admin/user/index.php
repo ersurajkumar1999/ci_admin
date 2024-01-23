@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">users List</h5>
-                        <a href="">Add New</a>
+                        <a href="<?php echo base_url("admin/create_user"); ?>" class="btn btn-info">Add New</a>
                         <table class="table datatable">
                             <thead>
                                 <tr>
@@ -40,7 +40,7 @@
                                         
                                         <td><?php echo date('d-m-Y h:i A', strtotime($users['created_at'])); ?></td>
                                         <td>
-                                            <a href="" class="btn btn-info">Edit</a>
+                                            <a href="<?php echo base_url("admin/user_edit/").$users['id']; ?>" class="btn btn-info">Edit</a>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
