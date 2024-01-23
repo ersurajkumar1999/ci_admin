@@ -31,7 +31,6 @@ class Admin extends CI_Controller
         $userType = 'User';
         $users = $this->User_Model->allUserData($userType);
         $data['users'] = $users;
-
         $this->load->view('admin/user/index', $data);
     }
 }

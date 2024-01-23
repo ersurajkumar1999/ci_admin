@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?php echo base_url('assets/img/favicon.png') ?>" rel="icon">
+    <link href="<?php echo base_url('assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -31,59 +31,48 @@
 </head>
 
 <body>
-
     <main>
         <div class="container">
-
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
                             <div class="d-flex justify-content-center py-4">
                                 <a href="" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
+                                    <img src="<?php echo base_url('assets/img/logo.png') ?>" alt="">
                                     <span class="d-none d-lg-block">User Register</span>
                                 </a>
-                            </div><!-- End Logo -->
-
+                            </div>
                             <div class="card mb-3">
-
                                 <div class="card-body">
-
                                     <div class="pt-4 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                                         <p class="text-center small">Enter your personal details to create account</p>
                                     </div>
-
-                                    <form class="row g-3 needs-validation" novalidate>
+                                    <?php
+                                    if ($this->session->flashdata('success')) {
+                                        echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                                    } elseif ($this->session->flashdata('error')) {
+                                        echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                    }
+                                    ?>
+                                    <form class="row g-3 needs-validation" method="post" action="<?php echo base_url("user/create"); ?>" novalidate>
+                                        <!-- <input type="hidden" name="user_type" value="User"> -->
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Your Name</label>
                                             <input type="text" name="name" class="form-control" id="yourName" required>
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
-
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Your Email</label>
                                             <input type="email" name="email" class="form-control" id="yourEmail" required>
                                             <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                                         </div>
-
-                                        <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Username</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input type="text" name="username" class="form-control" id="yourUsername" required>
-                                                <div class="invalid-feedback">Please choose a username.</div>
-                                            </div>
-                                        </div>
-
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="yourPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
-
                                         <div class="col-12">
                                             <div class="form-check">
                                                 <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
@@ -98,25 +87,18 @@
                                             <p class="small mb-0">Already have an account? <a href="<?php echo base_url("user/index"); ?>">Log in</a></p>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
-
                             <div class="credits">
                                 Designed by <a href="">CI Admin</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </section>
-
         </div>
     </main><!-- End #main -->
-
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     <script src="<?php echo base_url("assets/vendor/apexcharts/apexcharts.min.js"); ?> "></script>
     <script src="<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"); ?> "></script>
     <script src="<?php echo base_url("assets/vendor/chart.js/chart.umd.js"); ?> "></script>
@@ -125,10 +107,8 @@
     <script src="<?php echo base_url("assets/vendor/simple-datatables/simple-datatables.js"); ?> "></script>
     <script src="<?php echo base_url("assets/vendor/tinymce/tinymce.min.js"); ?> "></script>
     <script src="<?php echo base_url("assets/vendor/php-email-form/validate.js"); ?>"></script>
-
     <!-- Template Main JS File -->
     <script src="<?php echo base_url("assets/js/main.js"); ?>"></script>
-
 </body>
 
 </html>
