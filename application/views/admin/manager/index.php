@@ -18,14 +18,15 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Manager List</h5>
-                        <a href="">Add New</a>
+                        <a href="<?php echo base_url('admin/create_manager');?>" class="btn btn-info">Add New</a>
                         <table class="table datatable">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Number</th>
+                                    <th>UserType</th>
+                                    <!-- <th>Number</th> -->
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -36,12 +37,11 @@
                                         <td><?php echo $key + 1 ?></td>
                                         <td><?php echo $manager['name']; ?></td>
                                         <td><?php echo $manager['email']; ?></td>
-                                        <td><?php echo $manager['number']; ?></td>
-                                        
+                                        <td><?php echo $manager['user_type']; ?></td>                                        
                                         <td><?php echo date('d-m-Y h:i A', strtotime($manager['created_at'])); ?></td>
                                         <td>
-                                            <a href="" class="btn btn-info">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="<?php echo base_url("admin/manager_edit/"  .$manager['id']); ?>" class="btn btn-info">Edit</a>
+                                            <a href="<?php echo base_url('admin/deletemanager/' . $manager['id']); ?>" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

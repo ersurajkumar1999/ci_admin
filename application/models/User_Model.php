@@ -27,20 +27,43 @@ class User_Model extends CI_Model
     public function storeUserData($formArray)
     {
         $this->db->insert('users', $formArray);
-        // Get the last inserted ID
         $lastInsertId = $this->db->insert_id();
         return $lastInsertId;
     }
 
     // user update by user Id 
-    public function updateUser($user_id, $formArray)
+    public function updateUser($user_id, $data)
     {
         $this->db->where('id', $user_id);
-        $this->db->update('users', $formArray);
+        $this->db->update('users', $data);
+        // $updatedData = $this->getDataById($user_id);
+        // return $updatedData;
+    }
 
-        // Fetch the updated data
-        $updatedData = $this->getDataById($user_id);
+    public function deletedata($user_id)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->delete('users');
+    }
 
-        return $updatedData;
+    public function storemanagerData($formArray)
+    {
+        $this->db->insert('users', $formArray);
+        $lastInsertId = $this->db->insert_id();
+        return $lastInsertId;
+    }
+
+    public function updatemanager($user_id, $data)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->update('users', $data);
+        // $updatedData = $this->getDataById($user_id);
+        // return $updatedData;
+    }
+
+    public function deletemanager($user_id)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->delete('users');
     }
 }

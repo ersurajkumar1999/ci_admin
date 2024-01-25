@@ -25,7 +25,8 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Number</th>
+                                    <th>UserType</th>
+                                    <!-- <th>Number</th> -->
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -36,12 +37,12 @@
                                         <td><?php echo $key + 1 ?></td>
                                         <td><?php echo $users['name']; ?></td>
                                         <td><?php echo $users['email']; ?></td>
-                                        <td><?php echo $users['number']; ?></td>
+                                        <td><?php echo $users['user_type']; ?></td>
                                         
                                         <td><?php echo date('d-m-Y h:i A', strtotime($users['created_at'])); ?></td>
                                         <td>
-                                            <a href="<?php echo base_url("admin/user_edit/").$users['id']; ?>" class="btn btn-info">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="<?php echo base_url("admin/user_edit/"  .$users['id']); ?>" class="btn btn-info">Edit</a>
+                                            <a href="<?php echo base_url('admin/deleteUser/' . $users['id']); ?>" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
