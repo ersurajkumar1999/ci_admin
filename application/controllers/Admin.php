@@ -5,13 +5,12 @@
         {
             parent::__construct();
             $this->load->helper('url');
+            $this->load->helper('form');
+            $this->load->library('session');
             $this->load->database();
             $this->load->model('User_Model');
         }
-        public function index()
-        {
-            $this->load->view('admin/login');
-        }
+
         public function dashboard()
         {
             $this->load->view('admin/dashboard');
@@ -102,7 +101,7 @@
         {
             $data = array();
             $data['manager'] = $this->User_Model->getDataById($user_id);
-            $this->load->view('admin/manager/manager_edit',$data);
+            $this->load->view('admin/manager/manager_edit', $data);
         }
 
         public function update_manager($user_id)
@@ -120,5 +119,36 @@
         {
             $this->User_Model->deletemanager($user_id);
             redirect('admin/manager_list');
+        }
+        public function index()
+        {
+            $this->load->view('admin/admin_user_login');
+        }
+        public function admin_login()
+        {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+
+            $user = $this->User_Model->findUserByEmail($email);
+
+            if ($user) {
+                if ($user['password'] === $password) {
+                    $user_id = $user['id'];
+                    $this->session->set_userdata('adminId', $user_id);
+                    redirect('admin/dashboard');
+                } else {
+                    $this->session->set_flashdata('error', 'Password galat hai');
+                    redirect('admin/login');
+                }
+            } else {
+                $this->session->set_flashdata('error', 'Email galat hai');
+                redirect('admin/login');
+            }
+        }
+
+        public function logout()
+        {
+            $this->session->unset_userdata("adminId");
+            redirect('admin/login');
         }
     }
